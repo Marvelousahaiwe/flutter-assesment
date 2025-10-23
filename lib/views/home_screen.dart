@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:paxform_flutter/views/widgets/item_widget.dart';
 
 import 'package:paxform_flutter/views/widgets/appointment_widget.dart';
 import 'package:paxform_flutter/utls/color_const.dart';
 import 'package:paxform_flutter/utls/size_config.dart';
 import 'package:paxform_flutter/utls/text_style.dart';
+import 'package:paxform_flutter/views/widgets/category_widget.dart';
+import 'package:paxform_flutter/views/widgets/header_widget.dart';
 import 'package:paxform_flutter/views/widgets/ssearch_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -56,12 +59,22 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           const SsearchWidget().addHeight(20.h),
                           const AppointmentWidget().addHeight(20.h),
+                          const ItemsWidget().addHeight(20.h),
+                          HeaderWidget(
+                            header: "Categories",
+                            onTap: () {},
+                          ).addHeight(20.h),
+                          const CategoryWidget().addHeight(20.h),
+                          HeaderWidget(
+                            header: "Nearest Doctors",
+                            onTap: () {},
+                          ).addHeight(20.h),
                         ],
                       ),
                     ),
                   ],
                 ),
-              ).addHeight(30.h),
+              ).addHeight(30.h)
             ],
           ),
         ),
