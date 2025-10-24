@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:paxform_flutter/utls/image_string.dart';
 import 'package:paxform_flutter/views/widgets/item_widget.dart';
 
 import 'package:paxform_flutter/views/widgets/appointment_widget.dart';
@@ -8,6 +10,8 @@ import 'package:paxform_flutter/utls/size_config.dart';
 import 'package:paxform_flutter/utls/text_style.dart';
 import 'package:paxform_flutter/views/widgets/category_widget.dart';
 import 'package:paxform_flutter/views/widgets/header_widget.dart';
+import 'package:paxform_flutter/views/widgets/nearest_doctors_widget.dart';
+import 'package:paxform_flutter/views/widgets/nearest_medicals_widget.dart';
 import 'package:paxform_flutter/views/widgets/ssearch_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -69,9 +73,46 @@ class HomeScreen extends StatelessWidget {
                             header: "Nearest Doctors",
                             onTap: () {},
                           ).addHeight(20.h),
+                          const NearestDoctorsWidget().addHeight(20.h),
+                          HeaderWidget(
+                            header: "Nearest Medical Center",
+                            onTap: () {},
+                          ).addHeight(20.h),
+                          const NearestMedicalsWidget().addHeight(20.h)
                         ],
                       ),
                     ),
+                  ],
+                ),
+              ).addHeight(30.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 52.h,
+                      width: 52.h,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.secondaryColor.withValues(
+                          alpha: 0.3,
+                        ),
+                      ),
+                      child:
+                          Center(child: SvgPicture.asset(ImageString.checker)),
+                    ).addHeight(20.h),
+                    Text(
+                      "Information shared via forms is "
+                      "encrypted and can only be viewed "
+                      "by those you share it with.",
+                      textAlign: TextAlign.center,
+                      style: AppStyle.subTitle.copyWith(
+                        color: AppColors.white,
+                        height: 1.5.h,
+                      ),
+                    )
                   ],
                 ),
               ).addHeight(30.h)
